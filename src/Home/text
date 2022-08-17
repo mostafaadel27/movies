@@ -1,0 +1,243 @@
+<div className='bg-img  bg-dark '>
+          <div className="container w ">
+            <div className="row ">
+            <h2 className=' my-3 ms-5 fw-bold text-info'>TV Show</h2>
+              {trendfilm.slice(0,6).map((film)=>{
+                return <div className="col-lg-4 s  my-3">
+                <div className='p-1 mx-4  text-center x'>
+                  <div className='s mt-2'>
+                  <div className='layer rounded-5 '></div>
+                  <img src={'https://image.tmdb.org/t/p/w500/'+film.poster_path} className='w-100  shadow-lg rounded-5 ' alt="" />
+                  
+                  </div>
+                  
+                  
+                  <div className='z text-center px-5 '>
+                    <h2 className=''>{film.title}</h2>
+                    
+                  </div>
+                  
+                </div>
+</div>
+              })}
+              
+                
+                  
+              
+            </div>
+          </div>
+        </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <div class="carousel-inner ">
+          <div className='active'>
+          
+            
+           
+            
+              
+                <div class="carousel-item active vh-75">
+                  <div className="layer"></div>
+                  <img src={trendfilm.length>0? 'https://image.tmdb.org/t/p/original/'+trendfilm[0].backdrop_path:''} class="d-block w-100" alt="..."/>
+                    <div className='info'>
+                    <h2>{trendfilm.length>0?trendfilm[0].title:''}</h2>
+                  </div>
+                </div>
+                <div class="carousel-item  vh-75">
+                  <div className="layer"></div>
+                  <img src={trendfilm.length>0? 'https://image.tmdb.org/t/p/original/'+trendfilm[1].backdrop_path:''} class="d-block w-100" alt="..."/>
+                    <div className='info'>
+                    <h2>{trendfilm.length>0?trendfilm[1].title:''}</h2>
+                  </div>
+                </div>
+                <div class="carousel-item  vh-75">
+                  <div className="layer"></div>
+                  <img src={trendfilm.length>0? 'https://image.tmdb.org/t/p/original/'+trendfilm[2].backdrop_path:''} class="d-block w-100" alt="..."/>
+                    <div className='info'>
+                    <h2>{trendfilm.length>0?trendfilm[2].title:''}</h2>
+                    <p>Treanding</p>
+                  </div>
+                </div>
+            
+          </div>
+        
+          </div>
+
+
+
+
+
+
+
+
+
+
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/Lh-4uwMNklk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          <div className="container mt-5">
+
+            <div className="row py-5">
+           
+                <div className="col-md-4 py-5 mt-5">
+    
+                    <div className='px-2 me-5'>
+                    <img src={'https://image.tmdb.org/t/p/w500/'+filmDetails.poster_path} className='w-100' alt="" />
+                    
+                    </div>
+                    
+                </div>
+                <div className="col-md-8 py-5 mt-5">
+                    <div className='p-2'>
+                        <h2>{filmDetails.title}</h2>
+                        <h2>{filmDetails.overview}</h2>
+                        <button onClick={show}>click</button>
+                        {genres.length>0? genres.map((category)=>{
+                            return <div>{category.name}</div>
+                        }):''}
+                        {actors.map((actor)=>{
+                            if(actor.known_for_department=='Acting'){
+    
+                                return(<>
+                                <div>{actor.name}</div>
+                                <img src={'https://image.tmdb.org/t/p/w500/'+actor.profile_path} alt="" />
+                                </> )
+                            }
+                            
+                        })}
+                    </div>
+                    
+                </div>
+                
+                
+            </div>
+        </div>
+
+
+
+
+
+
+
+        ?'https://image.tmdb.org/t/p/original/'+poster.backdrop_path:'https://image.tmdb.org/t/p/original/'+filmDetails.backdrop_path
+
+
+
+
+
+
+
+
+
+
+        <div className='single_img'>
+          <div className="image">
+          <div className="layer"></div>
+              <img className=' w-100 poster h-100' src={(poster!==null && poster.backdrop_path!==null)?'https://image.tmdb.org/t/p/original/'+poster.backdrop_path:'https://image.tmdb.org/t/p/original/'+filmDetails.backdrop_path} alt="" />
+          </div>
+          
+              <div className="container">
+                  <div className="row">
+                      <div className="col-md-4 me-auto">
+                          <div>
+                              <div className='sImage w-100 text-center x1'>
+                                  <img className='ms-md-5 w-100 poster  card-img-top' src={'https://image.tmdb.org/t/p/original'+filmDetails.poster_path} alt="" />
+                              
+                              </div>
+                              
+                          </div>
+                          
+                      </div>
+                      <div className="col-md-8 ms-auto">
+                          <div className=' w-100  rounded-3   py-3'>
+                              <h2 className='mb-2 '>{filmDetails.title}</h2>
+                              <p className='p-4 fs-5'>{filmDetails.overview}</p>
+                              {genres.length>0? genres.map((category)=>{
+                                  return <h6 className='d-inline-block me-3 ms-2 text-dark bg-info p-2 my-2 rounded-3'>{category.name}</h6>
+                              }):''}
+                             <Button variant="text" size="medium" disableElevation className='text-danger d-block my-4 mx-0' onClick={show}><i class="fa-brands fa-youtube fs-1 "></i></Button> 
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              
+          </div>
+
+
+
+
+          lmaza27420@gmail.com
+          Mhfg
+
+
+
+          mostafa1111@gmail.com
+          Fcis2411961
+
+
+
+
+
+
+
+
+
+          style={{backgroundImage:`url(${(poster!==null && poster.backdrop_path!==null)?'https://image.tmdb.org/t/p/original/'+poster.backdrop_path:'https://image.tmdb.org/t/p/original/'+filmDetails.backdrop_path} )`}}
